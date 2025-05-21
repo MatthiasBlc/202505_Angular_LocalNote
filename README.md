@@ -1,27 +1,60 @@
 # NotesFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+## Table of contents
 
-## Development server
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [How to install](#How-to-install)
+- [How to use](#How-to-use)
+- [Features](#features)
+- [Sources](#sources)
+
+## General info
+
+This project is a complete notes app running in local using local storage.
+
+## Technologies
+
+![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+
+## How to install
+
+1 - Clone this repo on your machine
+2 - Open it in a Terminal
+3 - Run this command to initialize the project :
+
+```
+npm i
+```
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## How to use
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1 - Just run the following commands in your Terminal (inside the project's directory):
 
-## Running end-to-end tests
+```
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2 - You can access the project on the url : [http://localhost:4200/](http://localhost:4200/)
 
-## Further help
+That's it!  
+You have access to a complete note app !
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Features
+
+You can:
+
+<!-- - see a complete display of your notes with titles and tags.
+- filter and search by tags and/or title
+- create/edit/delete a note supporting Markdown
+- edit/create tags -->
+
+## Sources
+
+This app is created and made by [MatthiasBlc](https://github.com/MatthiasBlc).
