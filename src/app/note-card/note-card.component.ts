@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-note-card',
@@ -7,24 +7,38 @@ import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@ang
 })
 export class NoteCardComponent implements OnInit {
 
-  @Input() title!: string;
-  @Input() body!: string;
+  @Input() title?: string;
+  @Input() body?: string;
+  @Input() link?: string;
 
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
-  @ViewChild('truncator') truncator!: ElementRef<HTMLElement>;
-  @ViewChild('bodyText') bodyText!: ElementRef<HTMLElement>;
+  @ViewChild('truncator', { static: false }) truncator!: ElementRef<HTMLElement>;
+  @ViewChild('bodyText', { static: false }) bodyText!: ElementRef<HTMLElement>;
+
 
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
-    let style = window.getComputedStyle(this.bodyText.nativeElement, null);
-    let viewableHeight = parseInt(style.getPropertyValue("height"), 10);
+  }
+  ngAfterViewInit() {
+    const bodyTextEl = this.bodyText?.nativeElement;
+    const truncatorEl = this.truncator?.nativeElement;
 
-    if (this.bodyText.nativeElement.scrollHeight > viewableHeight) {
-      this.renderer.setStyle(this.truncator.nativeElement, 'display', 'block');
-    } else {
-      this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none')
+    if (bodyTextEl && truncatorEl) {
+      const style = window.getComputedStyle(bodyTextEl);
+      const viewableHeight = parseInt(style.getPropertyValue('height'), 10);
+
+      if (bodyTextEl.scrollHeight > viewableHeight) {
+        this.renderer.setStyle(truncatorEl, 'display', 'block');
+      } else {
+        this.renderer.setStyle(truncatorEl, 'display', 'none');
+      }
     }
+  }
+
+  onXButtonClick() {
+    this.deleteEvent.emit();
   }
 
 }

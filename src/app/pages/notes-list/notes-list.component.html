@@ -12,8 +12,18 @@
 
   <div class="notes-list">
     <app-note-card
-      [title]="'testing'"
-      body="hahaahahahahahahahaha"
+      *ngFor="let note of notes; index as i"
+      [link]="i.toString()"
+      (delete)="deleteNote(i)"
+      [title]="note.title"
+      [body]="note.body"
     ></app-note-card>
   </div>
+  <!-- // interesting debug
+  <p>Total notes: {{ notes.length }}</p>
+  <pre>{{ notes | json }}</pre> -->
+
+  <button class="button floating-add-button is-primary" routerLink="new">
+    New Note
+  </button>
 </div>
